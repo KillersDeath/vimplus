@@ -31,6 +31,8 @@ set report=0
 set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
+" 设置更新时间
+set updatetime=250
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 显示设置
@@ -165,34 +167,6 @@ set encoding=utf8
 " 使用utf-8或gbk打开文件
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 新建文件设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufNewFile *.cpp,*.cc,*.c,*.hpp,*.h,*.sh,*.py exec ":call SetTitle()" 
-func SetTitle() 
-	if expand("%:e") == 'sh'
-		call setline(1,"\#!/bin/bash") 
-		call append(line("."), "") 
-    elseif expand("%:e") == 'py'
-        call setline(1,"#!/usr/bin/env python")
-        call append(line("."),"# coding=utf-8")
-	    call append(line(".")+1, "") 
-    elseif expand("%:e") == 'cpp'
-		call setline(1,"#include <iostream>") 
-		call append(line("."), "") 
-    elseif expand("%:e") == 'cc'
-		call setline(1,"#include <iostream>") 
-		call append(line("."), "") 
-    elseif expand("%:e") == 'c'
-		call setline(1,"#include <stdio.h>") 
-		call append(line("."), "") 
-    elseif expand("%:e") == 'h'
-		call setline(1, "#pragma once")
-    elseif expand("%:e") == 'hpp'
-		call setline(1, "#pragma once")
-	endif
-endfunc 
-autocmd BufNewFile * normal G
 
 " Vundle
 filetype off        
@@ -236,6 +210,9 @@ Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
 Plugin 'junegunn/vim-slash'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()            
 filetype plugin indent on    
@@ -249,6 +226,12 @@ imap <F10> <ESC> :NextColorScheme<CR>
 map <F9> :PreviousColorScheme<CR>
 imap <F9> <ESC> :PreviousColorScheme<CR>
 
+"split navigations
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>h <C-W>h
+
 " nerdtree
 " map <Leader>L <Plug>(easymotion-bd-jk)
 " nmap <Leader>L <Plug>(easymotion-overwin-line)
@@ -258,7 +241,7 @@ imap <Leader>n <ESC> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Doxygen
-let g:DoxygenToolkit_authorName="chxuan, 787280310@qq.com"
+let g:DoxygenToolkit_authorName="Kevin, liujiezhangbupt@gmail.com"
 let s:licenseTag = "Copyright(C)\<enter>"
 let s:licenseTag = s:licenseTag . "For free\<enter>"
 let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
@@ -266,6 +249,13 @@ let g:DoxygenToolkit_licenseTag = s:licenseTag
 let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
 let g:DoxygenToolkit_commentType="Qt"
+
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="---------------------------------------------------------------------------"
+
 
 " YCM
 let g:ycm_confirm_extra_conf = 0 
@@ -276,9 +266,40 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1 
 "let g:ycm_cache_omnifunc = 0 
 nnoremap <leader>u :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>i :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>o :YcmCompleter GoToInclude<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
 nmap <F5> :YcmDiags<CR>
+"set python interpreter
+let g:ycm_python_binary_path = 'python'
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+"NERDTree
+"自动打开目录
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+"nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 
 " ctags
 set tags+=/usr/include/tags
@@ -312,6 +333,9 @@ nnoremap <silent> <Leader>a :A<CR>
 let g:tagbar_width = 30
 map <Leader>t :TagbarToggle<CR>
 imap <Leader>t <ESC> :TagbarToggle<CR>
+
+" SimpylFold
+
 
 " colorscheme
 set background=dark
@@ -350,7 +374,7 @@ let g:ctrlp_working_path_mode = '0'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " vim-devicons
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h12
 
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
@@ -391,7 +415,21 @@ nmap <Leader><Leader>il :IndentLinesToggle<CR>
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height=10
 
+" Quickly run python
+map <F5> :call AutoRunPython()<CR>
+func! AutoRunPython()
+    exec "w"
+    if &filetype == 'python'
+        exec '!time python %'
+    endif
+endfunc
+
+
 " 个性化
 if filereadable(expand($HOME . '/.vimrc.local'))
     source $HOME/.vimrc.local
 endif
+
+
+
+
