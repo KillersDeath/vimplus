@@ -31,18 +31,8 @@ set number               " 开启行号显示
 set cursorline           " 高亮显示当前行
 set whichwrap+=<,>,h,l   " 设置光标键跨行
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
-" 定义快捷键的前缀，即<Leader>
-let mapleader = ","
-" 开启文件类型侦测
-filetype on
-" 根据侦测到的不同类型加载对应的插件
-filetype plugin on
 " 不让vim发出讨厌的滴滴声
 set noerrorbells
-" 不要使用vi的键盘模式，使用vim自己的
-set nocompatible
-" 去掉输入错误的提示
-set noeb
 " 告诉我们文件的哪一行被改变过
 set report=0
 " 可以在buffer的任何地方使用鼠标
@@ -358,7 +348,7 @@ imap <Leader>t <ESC> :TagbarToggle<CR>
 " colorscheme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
 "colorscheme monokai
 
 " cpp_class_scope_highlight
