@@ -151,26 +151,24 @@ Plug 'Shougo/echodoc.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'terryma/vim-expand-region'
-Plugin 'Yggdroot/indentLine'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'wsdjeg/FlyGrep.vim'
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'docunext/closetag.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'will133/vim-dirdiff'
-Plugin 'mhinz/vim-startify'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
+Plug 'wsdjeg/FlyGrep.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'scrooloose/nerdcommenter'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'Valloric/MatchTagAlways'
+Plug 'docunext/closetag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'will133/vim-dirdiff'
+Plug 'mhinz/vim-startify'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tmhedberg/SimpylFold'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()            
-=======
-
 
 
 " load vim default plugin
