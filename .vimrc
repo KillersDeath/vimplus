@@ -31,6 +31,26 @@ set number               " 开启行号显示
 set cursorline           " 高亮显示当前行
 set whichwrap+=<,>,h,l   " 设置光标键跨行
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
+" 定义快捷键的前缀，即<Leader>
+let mapleader = ","
+" 开启文件类型侦测
+filetype on
+" 根据侦测到的不同类型加载对应的插件
+filetype plugin on
+" 不让vim发出讨厌的滴滴声
+set noerrorbells
+" 不要使用vi的键盘模式，使用vim自己的
+set nocompatible
+" 去掉输入错误的提示
+set noeb
+" 告诉我们文件的哪一行被改变过
+set report=0
+" 可以在buffer的任何地方使用鼠标
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+" 设置更新时间
+set updatetime=250
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -131,8 +151,27 @@ Plug 'Shougo/echodoc.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'terryma/vim-expand-region'
+Plugin 'Yggdroot/indentLine'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'wsdjeg/FlyGrep.vim'
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'docunext/closetag.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'will133/vim-dirdiff'
+Plugin 'mhinz/vim-startify'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'airblade/vim-gitgutter'
 
 call plug#end()            
+=======
+
+
 
 " load vim default plugin
 runtime macros/matchit.vim
@@ -192,6 +231,12 @@ inoremap <silent> <F11> <esc> :RandomColorScheme<cr>
 nnoremap <silent> <F12> :ShowColorScheme<cr>
 inoremap <silent> <F12> <esc> :ShowColorScheme<cr>
 
+"split navigations
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>h <C-W>h
+
 " nerdtree
 nnoremap <silent> <leader>n :NERDTreeToggle<cr>
 inoremap <silent> <leader>n <esc> :NERDTreeToggle<cr>
@@ -203,6 +248,30 @@ let g:NERDTreeHighlightFoldersFullName = 1
 let g:NERDTreeDirArrowExpandable='▷'
 let g:NERDTreeDirArrowCollapsible='▼'
 
+" map <Leader>L <Plug>(easymotion-bd-jk)
+" nmap <Leader>L <Plug>(easymotion-overwin-line)
+map <Leader>n :NERDTreeToggle<CR>
+imap <Leader>n <ESC> :NERDTreeToggle<CR>
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Doxygen
+let g:DoxygenToolkit_authorName="Kevin, liujiezhangbupt@gmail.com"
+let s:licenseTag = "Copyright(C)\<enter>"
+let s:licenseTag = s:licenseTag . "For free\<enter>"
+let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
+let g:DoxygenToolkit_licenseTag = s:licenseTag
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
+let g:DoxygenToolkit_commentType="Qt"
+
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="---------------------------------------------------------------------------"
+
+
 " YCM
 let g:ycm_confirm_extra_conf = 0 
 let g:ycm_error_symbol = '>>'
@@ -210,11 +279,50 @@ let g:ycm_warning_symbol = '>*'
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_complete_in_comments = 1 
 let g:ycm_complete_in_strings = 1 
+
 nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>i :YcmCompleter GoToDefinition<cr>
 nnoremap <leader>o :YcmCompleter GoToInclude<cr>
 nnoremap <leader>ff :YcmCompleter FixIt<cr>
 nmap <F5> :YcmDiags<cr>
+
+"let g:ycm_cache_omnifunc = 0 
+
+nnoremap <leader>u :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
+nmap <F5> :YcmDiags<CR>
+"set python interpreter
+let g:ycm_python_binary_path = 'python'
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+"NERDTree
+"自动打开目录
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+"nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 
 " ctags
 set tags+=/usr/include/tags
@@ -243,11 +351,32 @@ nnoremap <silent> <leader>a :A<cr>
 let g:tagbar_width = 30
 nnoremap <silent> <leader>t :TagbarToggle<cr>
 inoremap <silent> <leader>t <esc> :TagbarToggle<cr>
+map <Leader>t :TagbarToggle<CR>
+imap <Leader>t <ESC> :TagbarToggle<CR>
+
+" SimpylFold
+
+
+" colorscheme
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+"colorscheme monokai
 
 " cpp_class_scope_highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
+
+
+" ctrlp
+let g:ctrlp_map = '<c-f>'
+let g:ctrlp_cmd = ':CtrlP'
+let g:ctrlp_working_path_mode = '0'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+" vim-devicons
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h12
 
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
@@ -275,19 +404,6 @@ nmap <leader>w <Plug>(easymotion-overwin-w)
 let g:pydiction_location='~/.vim/plugged/pydiction/complete-dict'
 let g:pydiction_menu_height=10
 
-" nerdtree-git-plugin
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 " LeaderF
 nnoremap <leader>f :LeaderfFile ~<cr>
@@ -329,7 +445,21 @@ nnoremap <leader>g :GV<cr>
 nnoremap <leader>G :GV!<cr>
 nnoremap <leader>gg :GV?<cr>
 
+" Quickly run python
+map <F5> :call AutoRunPython()<CR>
+func! AutoRunPython()
+    exec "w"
+    if &filetype == 'python'
+        exec '!time python %'
+    endif
+endfunc
+
+
 " 个性化
 if filereadable(expand($HOME . '/.vimrc.local'))
     source $HOME/.vimrc.local
 endif
+
+
+
+
