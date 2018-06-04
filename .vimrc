@@ -138,23 +138,17 @@ Plug 'kana/vim-textobj-syntax'
 Plug 'kana/vim-textobj-function'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Shougo/echodoc.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'terryma/vim-smooth-scroll'
 Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
-Plug 'wsdjeg/FlyGrep.vim'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'docunext/closetag.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'will133/vim-dirdiff'
-Plug 'mhinz/vim-startify'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tmhedberg/SimpylFold'
 Plug 'airblade/vim-gitgutter'
 
@@ -220,10 +214,10 @@ nnoremap <silent> <F12> :ShowColorScheme<cr>
 inoremap <silent> <F12> <esc> :ShowColorScheme<cr>
 
 "split navigations
-nnoremap <Leader>j <C-W>j
-nnoremap <Leader>k <C-W>k
-nnoremap <Leader>l <C-W>l
-nnoremap <Leader>h <C-W>h
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>wh <C-W>h
 
 " nerdtree
 nnoremap <silent> <leader>n :NERDTreeToggle<cr>
@@ -251,7 +245,7 @@ let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
 let g:DoxygenToolkit_licenseTag = s:licenseTag
 let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
-let g:DoxygenToolkit_commentType="Qt"
+let g:DoxygenToolkit_commentType="vim"
 
 let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
 let g:DoxygenToolkit_paramTag_pre="@Param "
@@ -275,11 +269,6 @@ nnoremap <leader>ff :YcmCompleter FixIt<cr>
 nmap <F5> :YcmDiags<cr>
 
 "let g:ycm_cache_omnifunc = 0 
-
-nnoremap <leader>u :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>i :YcmCompleter GoToInclude<CR>
-nmap <F5> :YcmDiags<CR>
 "set python interpreter
 let g:ycm_python_binary_path = 'python'
 "python with virtualenv support
@@ -312,26 +301,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 
-" ctags
-set tags+=/usr/include/tags
-set tags+=~/.vim/systags
-set tags+=~/.vim/x86_64-linux-gnu-systags
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
-  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-  \             're!\[.*\]\s'],
-  \   'ocaml' : ['.', '#'],
-  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
-  \   'perl' : ['->'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \ }
-let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
-
 " a.vim: .h -> .cpp or .cpp -> .h
 nnoremap <silent> <leader>a :A<cr>
 
@@ -357,11 +326,6 @@ let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
 
 
-" ctrlp
-let g:ctrlp_map = '<c-f>'
-let g:ctrlp_cmd = ':CtrlP'
-let g:ctrlp_working_path_mode = '0'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " vim-devicons
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h12
@@ -408,25 +372,9 @@ nnoremap <Leader>F :Ack!<space>
 let g:echodoc_enable_at_startup = 1
 
 " tabular
-nnoremap <leader>l :Tab /\|<cr>
-nnoremap <leader>= :Tab /=<cr>
+nnoremap <leader>l :Tab /\| <cr>
+nnoremap <leader>= :Tab /= <cr>
 
-" vim-smooth-scroll
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
-" vim-multiple-cursors
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<C-j>'
-let g:multi_cursor_select_all_word_key = '<A-j>'
-let g:multi_cursor_start_key           = 'g<C-j>'
-let g:multi_cursor_select_all_key      = 'g<A-j>'
-let g:multi_cursor_next_key            = '<C-j>'
-let g:multi_cursor_prev_key            = '<C-k>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 " gv
 nnoremap <leader>g :GV<cr>
@@ -434,7 +382,7 @@ nnoremap <leader>G :GV!<cr>
 nnoremap <leader>gg :GV?<cr>
 
 " Quickly run python
-map <F5> :call AutoRunPython()<CR>
+nnoremap <leader>r :call AutoRunPython()<CR>
 func! AutoRunPython()
     exec "w"
     if &filetype == 'python'
