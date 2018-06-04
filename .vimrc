@@ -270,7 +270,7 @@ nmap <F5> :YcmDiags<cr>
 
 "let g:ycm_cache_omnifunc = 0 
 "set python interpreter
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path = 'python3'
 "python with virtualenv support
 py << EOF
 import os
