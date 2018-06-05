@@ -272,14 +272,14 @@ nmap <F5> :YcmDiags<cr>
 "set python interpreter
 let g:ycm_python_binary_path = 'python3'
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF
 
 "NERDTree
 "自动打开目录
@@ -390,7 +390,8 @@ func! AutoRunPython()
     endif
 endfunc
 
-
+" set python quickly debugging
+map<silent> <leader><leader>b oimport ipdb;ipdb.set_trace(context=5)<esc>
 " 个性化
 if filereadable(expand($HOME . '/.vimrc.local'))
     source $HOME/.vimrc.local
