@@ -151,6 +151,7 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'will133/vim-dirdiff'
 Plug 'tmhedberg/SimpylFold'
 Plug 'airblade/vim-gitgutter'
+Plug 'tell-k/vim-autopep8'
 
 call plug#end()            
 
@@ -390,6 +391,14 @@ func! AutoRunPython()
     endif
 endfunc
 
+" autopep8
+let g:autopep8_ignore="E501,W293"
+let g:autopep8_select="E501,W293"
+let g:autopep8_pep8_passes=100
+let g:autopep8_max_line_length=120
+" disable show diff window
+let g:autopep8_disable_show_diff=1
+let g:autopep8_on_save=1
 " set python quickly debugging
 map<silent> <leader><leader>b oimport ipdb;ipdb.set_trace(context=5)<esc>
 " 个性化
