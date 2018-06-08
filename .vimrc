@@ -151,7 +151,7 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'will133/vim-dirdiff'
 Plug 'tmhedberg/SimpylFold'
 Plug 'airblade/vim-gitgutter'
-"Plug 'tell-k/vim-autopep8'
+Plug 'tell-k/vim-autopep8'
 Plug 'jpalardy/vim-slime'
 Plug 'vim-syntastic/syntastic'
 
@@ -394,13 +394,13 @@ func! AutoRunPython()
 endfunc
 
 " autopep8
-" let g:autopep8_ignore="E501,W293"
-" let g:autopep8_select="E501,W293"
-" let g:autopep8_pep8_passes=100
-" let g:autopep8_max_line_length=120
-" " disable show diff window
-" let g:autopep8_disable_show_diff=1
-" let g:autopep8_on_save=1
+let g:autopep8_ignore="E501,W293"
+let g:autopep8_select="E501,W293"
+let g:autopep8_pep8_passes=100
+let g:autopep8_max_line_length=120
+" disable show diff window
+let g:autopep8_disable_show_diff=1
+let g:autopep8_on_save=1
 
 " vim-slime
 let g:slime_target="tmux"
