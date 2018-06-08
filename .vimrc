@@ -151,7 +151,9 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'will133/vim-dirdiff'
 Plug 'tmhedberg/SimpylFold'
 Plug 'airblade/vim-gitgutter'
-Plug 'tell-k/vim-autopep8'
+"Plug 'tell-k/vim-autopep8'
+Plug 'jpalardy/vim-slime'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()            
 
@@ -392,13 +394,28 @@ func! AutoRunPython()
 endfunc
 
 " autopep8
-let g:autopep8_ignore="E501,W293"
-let g:autopep8_select="E501,W293"
-let g:autopep8_pep8_passes=100
-let g:autopep8_max_line_length=120
-" disable show diff window
-let g:autopep8_disable_show_diff=1
-let g:autopep8_on_save=1
+" let g:autopep8_ignore="E501,W293"
+" let g:autopep8_select="E501,W293"
+" let g:autopep8_pep8_passes=100
+" let g:autopep8_max_line_length=120
+" " disable show diff window
+" let g:autopep8_disable_show_diff=1
+" let g:autopep8_on_save=1
+
+" vim-slime
+let g:slime_target="tmux"
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_polulate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+
 " set python quickly debugging
 map<silent> <leader><leader>b oimport ipdb;ipdb.set_trace(context=5)<esc>
 " 个性化
