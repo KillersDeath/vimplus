@@ -101,61 +101,56 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 call plug#begin('~/.vim/plugged')
 " C
 Plug 'chxuan/cppfun'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/a.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'octol/vim-cpp-enhanced-highlight'
 " Go
 Plug 'fatih/vim-go'
 " python
 Plug 'tell-k/vim-autopep8'
-" 通用
+Plug 'rkulla/pydiction'
+" 补全
 Plug 'Valloric/YouCompleteMe'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+" 界面和状态栏
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdcommenter'
 Plug 'chxuan/change-colorscheme'
 Plug 'chxuan/vimplus-startify'
-Plug 'chxuan/prepare-code'
-Plug 'Yggdroot/LeaderF'
-Plug 'mileszs/ack.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/incsearch.vim'
+Plug 'godlygeek/tabular'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'terryma/vim-expand-region'
+" 编辑预览
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'rkulla/pydiction'
-Plug 'godlygeek/tabular'
+" 搜索
+Plug 'Yggdroot/LeaderF'
+Plug 'mileszs/ack.vim'
+" git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" 通用
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'majutsushi/tagbar'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/L9'
-Plug 'vim-scripts/a.vim'
-Plug 'vim-scripts/txt.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-slash'
 Plug 'junegunn/gv.vim'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-syntax'
-Plug 'kana/vim-textobj-function'
-Plug 'sgur/vim-textobj-parameter'
 Plug 'Shougo/echodoc.vim'
-Plug 'terryma/vim-expand-region'
-Plug 'Yggdroot/indentLine'
-Plug 'easymotion/vim-easymotion'
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'scrooloose/nerdcommenter'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'Valloric/MatchTagAlways'
-Plug 'docunext/closetag.vim'
-Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'will133/vim-dirdiff'
-Plug 'tmhedberg/SimpylFold'
-Plug 'airblade/vim-gitgutter'
 Plug 'jpalardy/vim-slime'
 Plug 'vim-syntastic/syntastic'
 
@@ -271,7 +266,7 @@ let g:ycm_complete_in_strings = 1
 
 nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>i :YcmCompleter GoToDefinition<cr>
-nnoremap <leader>o :YcmCompleter GoToInclude<cr>
+"nnoremap <leader>o :YcmCompleter GoToInclude<cr>
 nnoremap <leader>ff :YcmCompleter FixIt<cr>
 nmap <F5> :YcmDiags<cr>
 
