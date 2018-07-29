@@ -259,10 +259,6 @@ let g:DoxygenToolkit_blockFooter="----------------------------------------------
 
 " YCM
 let g:ycm_confirm_extra_conf = 0 
-let g:ycm_key_invoke_completion = ''
-" 禁止缓存匹配项,每次都重新生成匹配项"
-let g:ycm_cache_omnifunc=0
-let g:ycm_global_ycm_extra_conf='~/.vimplus/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
 let g:ycm_seed_identifiers_with_syntax = 1 
@@ -273,7 +269,7 @@ nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>i :YcmCompleter GoToDefinition<cr>
 nnoremap <leader>o :YcmCompleter GoToInclude<cr>
 nnoremap <leader>ff :YcmCompleter FixIt<cr>
-nmap <F4> :YcmDiags<cr>
+nmap <F5> :YcmDiags<cr>
 
 "let g:ycm_cache_omnifunc = 0 
 "set python interpreter
@@ -401,7 +397,7 @@ endfunc
 let g:autopep8_ignore="E501,W293"
 let g:autopep8_select="E501,W293"
 let g:autopep8_pep8_passes=100
-let g:autopep8_max_line_length=100
+let g:autopep8_max_line_length=120
 " disable show diff window
 let g:autopep8_disable_show_diff=1
 let g:autopep8_on_save=1

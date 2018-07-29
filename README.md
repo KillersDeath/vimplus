@@ -5,8 +5,8 @@ An automatic configuration program for vim
 
 ![][2]
 
-安装
-------------
+## 安装
+
 ### Mac OS X
 
 - 安装[HomeBrew][3]
@@ -61,54 +61,53 @@ An automatic configuration program for vim
     sudo ./install.sh
     ```
 
-个性化
-------------
+## 个性化
 
 修改 `~/.vimrc.local` 文件内容，以启用个性化定制，可覆盖 `~/.vimrc` 中的设置。
 
 
-插件列表
-------------
+## 插件列表
 
-| 插件                                | 说明                                                                 |
-| -------                             | -----                                                                |
-| [cppfun][58]                        | 生成函数实现(I'm author:smile:)                                      |
-| [change-colorscheme][27]            | 随心所欲切换主题(I'm author:smile:)                                  |
-| [prepare-code][67]                  | 新建文件时，生成预定义代码片段(I'm author:smile:)                    |
-| [vimplus-startify][66]              | vimplus开始页面(修改自[mhinz/vim-startify][25])                      |
-| [vim-plug][4]                       | 比[Vundle][54]下载更快的插件管理软件                                 |
-| [YouCompleteMe][5]                  | 史上最强大的基于语义的自动补全插件，支持C/C++、C#、Python、PHP等语言 |
-| [NerdTree][6]                       | 代码资源管理器                                                       |
-| [vim-nerdtree-syntax-highlight][52] | NerdTree文件类型高亮                                                 |
-| [nerdtree-git-plugin][53]           | NerdTree显示git状态                                                  |
-| [vim-devicons][15]                  | 显示文件类型图标                                                     |
-| [Airline][8]                        | 可以取代[powerline][9]的状态栏美化插件                               |
-| [auto-pairs][10]                    | 自动补全引号、圆括号、花括号等                                       |
-| [LeaderF][56]                       | 比[ctrlp][12]更强大的文件的模糊搜索工具                              |
-| [ack][62]                           | 强大的文本搜索工具                                                   |
-| [tagbar][13]                        | [taglist][14]的替代品，显示类/方法/变量                              |
-| [vim-surround][16]                  | 自动增加、替换配对符的插件                                           |
-| [vim-commentary][17]                | 快速注释代码插件                                                     |
-| [vim-repeat][18]                    | 重复上一次操作                                                       |
-| [vim-endwise][19]                   | if/end/endif/endfunction补全                                         |
-| [tabular][20]                       | 代码、注释、表格对齐                                                 |
-| [vim-easymotion][23]                | 强大的光标快速移动工具，强大到颠覆你的插件观                         |
-| [incsearch.vim][24]                 | 模糊字符搜索插件                                                     |
-| [markdown-preview][26]              | markdown实时预览                                                     |
-| [L9][28]                            | Vim-script函数库                                                     |
-| [pydiction][32]                     | 基于字典的python语法补全                                             |
-| [a.vim][35]                         | .h .cpp文件快速切换                                                  |
-| [vim-fugitive][36]                  | 集成Git                                                              |
-| [gv][64]                            | git提交浏览器                                                        |
-| [vim-slash][50]                     | 优化搜索，移动光标后清除高亮                                         |
-| [echodoc][57]                       | 补全函数时在命令栏显示函数签名                                       |
-| [vim-multiple-cursors][63]          | 多光标编辑                                                           |
-| [vim-smooth-scroll][60]             | 让翻页更顺畅                                                         |
-| [vim-expand-region][61]             | 快速选择区域                                                         |
+| 插件                                | 说明                                                                           |
+| -------                             | -----                                                                          |
+| [cpp-mode][58]                      | 提供生成函数实现、函数声明/实现跳转、.h .cpp切换等功能(I'm author:smile:)      |
+| [vim-edit][72]                      | 方便的文本编辑插件(I'm author:smile:)                                          |
+| [change-colorscheme][27]            | 随心所欲切换主题(I'm author:smile:)                                            |
+| [prepare-code][67]                  | 新建文件时，生成预定义代码片段(I'm author:smile:)                              |
+| [vim-buffer][70]                    | vim缓存操作(I'm author:smile:)                                                 |
+| [vimplus-startify][66]              | vimplus开始页面(修改自[mhinz/vim-startify][25])                                |
+| [tagbar][74]                        | 使用[majutsushi/tagbar][13]的v2.3版本，[taglist][14]的替代品，显示类/方法/变量 |
+| [vim-plug][4]                       | 比[Vundle][54]下载更快的插件管理软件                                           |
+| [YouCompleteMe][5]                  | 史上最强大的基于语义的自动补全插件，支持C/C++、C#、Python、PHP等语言           |
+| [NerdTree][6]                       | 代码资源管理器                                                                 |
+| [vim-nerdtree-syntax-highlight][52] | NerdTree文件类型高亮                                                           |
+| [nerdtree-git-plugin][53]           | NerdTree显示git状态                                                            |
+| [vim-devicons][15]                  | 显示文件类型图标                                                               |
+| [Airline][8]                        | 可以取代[powerline][9]的状态栏美化插件                                         |
+| [auto-pairs][10]                    | 自动补全引号、圆括号、花括号等                                                 |
+| [LeaderF][56]                       | 比[ctrlp][12]更强大的文件的模糊搜索工具                                        |
+| [ack][62]                           | 强大的文本搜索工具                                                             |
+| [vim-surround][16]                  | 自动增加、替换配对符的插件                                                     |
+| [vim-commentary][17]                | 快速注释代码插件                                                               |
+| [vim-repeat][18]                    | 重复上一次操作                                                                 |
+| [vim-endwise][19]                   | if/end/endif/endfunction补全                                                   |
+| [tabular][20]                       | 代码、注释、表格对齐                                                           |
+| [vim-easymotion][23]                | 强大的光标快速移动工具，强大到颠覆你的插件观                                   |
+| [incsearch.vim][24]                 | 模糊字符搜索插件                                                               |
+| [markdown-preview][26]              | markdown实时预览                                                               |
+| [pydiction][32]                     | 基于字典的python语法补全                                                       |
+| [vim-fugitive][36]                  | 集成Git                                                                        |
+| [gv][64]                            | 显示git提交记录                                                                |
+| [vim-slash][50]                     | 优化搜索，移动光标后清除高亮                                                   |
+| [echodoc][57]                       | 补全函数时在命令栏显示函数签名                                                 |
+| [vim-smooth-scroll][60]             | 让翻页更顺畅                                                                   |
+| [vim-expand-region][61]             | 快速选择区域                                                                   |
+| [clever-f.vim][68]                  | 强化f和F键                                                                     |
+| [github-complete.vim][69]           | Emoji:dog:补全                                                                 |
+| [vimcdoc][73]                       | vim中文文档                                                                    |
 
 
-快捷键
-------------
+## 快捷键
 
 以下是部分快捷键，更详细的快捷键请查阅[vimplus帮助文档][59]。
 
@@ -118,11 +117,11 @@ An automatic configuration program for vim
 | `<leader>n`  | 打开/关闭代码资源管理器              |
 | `<leader>t`  | 打开/关闭函数列表                    |
 | `<leader>a`  | .h .cpp 文件切换                     |
-| `<leader>i`  | 转到函数声明                         |
-| `<leader>u`  | 转到函数实现                         |
+| `<leader>u`  | 转到函数声明                         |
+| `<leader>U`  | 转到函数实现                         |
 | `<leader>o`  | 打开include文件                      |
 | `<leader>y`  | 拷贝函数声明                         |
-| `<leader>p`  | 生成函数定义                         |
+| `<leader>p`  | 生成函数实现                         |
 | `<leader>w`  | 单词跳转                             |
 | `<leader>f`  | 搜索~目录下的文件                    |
 | `<leader>F`  | 搜索当前目录下的文本                 |
@@ -130,6 +129,10 @@ An automatic configuration program for vim
 | `<leader>G`  | 显示当前文件提交记录                 |
 | `<leader>gg` | 显示当前文件在某个commit下的完整内容 |
 | `<leader>ff` | 语法错误自动修复(FixIt)              |
+| `<c-p>`      | 切换到上一个buffer                   |
+| `<c-n>`      | 切换到下一个buffer                   |
+| `<leader>d`  | 删除当前buffer                       |
+| `<leader>D`  | 删除当前buffer外的所有buffer         |
 | `vi`         | 运行vi编辑器时,默认启动开始页面      |
 | `<F5>`       | 显示语法错误提示窗口                 |
 | `<F7>`       | 启用markdown实时预览                 |
@@ -138,6 +141,11 @@ An automatic configuration program for vim
 | `<F10>`      | 显示下一主题                         |
 | `<leader>l`  | 按竖线对齐                           |
 | `<leader>=`  | 按等号对齐                           |
+| `Ya`         | 复制行文本到字母a                    |
+| `Da`         | 剪切行文本到字母a                    |
+| `Ca`         | 改写行文本到字母a                    |
+| `rr`         | 替换文本                             |
+| `<leader>r`  | 全局替换，目前只支持单个文件         |
 | `gcc`        | 注释代码                             |
 | `gcap`       | 注释段落                             |
 | `vif`        | 选中函数内容                         |
@@ -148,9 +156,11 @@ An automatic configuration program for vim
 | `caf`        | 改写函数内容（包括函数名 花括号）    |
 | `+`          | 逐渐增大选择区域                     |
 | `-`          | 逐渐减小选择区域                     |
+| `fa`         | 查找字母a，然后再按f键查找下一个     |
+| `<c-x><c-o>` | Emoji:dog:补全                       |
 
-Q & A
-------------
+
+## Q & A
 
 - **`安装vimplus后Airline等插件有乱码，怎么解决？`**
 
@@ -185,20 +195,19 @@ Q & A
     那就麻烦您打赏一颗:star::star:吧，给予我继续维护的动力。
 
 
-特性展示
-------------
+## 特性展示
 
 - YouCompleteMe 
 
     ![][40]
 
+- cpp-mode
+
+    ![][71]
+
 - LeaderF 
 
     ![][41]
-
-- vim-multiple-cursors
-
-    ![][65]
 
 - vim-airline
 
@@ -256,9 +265,7 @@ Q & A
   [25]: https://github.com/mhinz/vim-startify
   [26]: https://github.com/iamcco/markdown-preview.vim
   [27]: https://github.com/chxuan/change-colorscheme
-  [28]: https://github.com/vim-scripts/L9
   [32]: https://github.com/rkulla/pydiction
-  [35]: https://github.com/vim-scripts/a.vim
   [36]: https://github.com/tpope/vim-fugitive
   [37]: https://pan.baidu.com/s/1i481Eeh
   [38]: https://github.com/Valloric/YouCompleteMe
@@ -280,13 +287,19 @@ Q & A
   [54]: https://github.com/VundleVim/Vundle.vim
   [56]: https://github.com/Yggdroot/LeaderF
   [57]: https://github.com/Shougo/echodoc.vim
-  [58]: https://github.com/chxuan/cppfun
+  [58]: https://github.com/chxuan/cpp-mode
   [59]: https://github.com/chxuan/vimplus/blob/master/help.md
   [60]: https://github.com/terryma/vim-smooth-scroll
   [61]: https://github.com/terryma/vim-expand-region
   [62]: https://github.com/mileszs/ack.vim
-  [63]: https://github.com/terryma/vim-multiple-cursors
   [64]: https://github.com/junegunn/gv.vim
   [65]: https://raw.githubusercontent.com/terryma/vim-multiple-cursors/master/assets/example1.gif
   [66]: https://github.com/chxuan/vimplus-startify
   [67]: https://github.com/chxuan/prepare-code
+  [68]: https://github.com/rhysd/clever-f.vim
+  [69]: https://github.com/rhysd/github-complete.vim
+  [70]: https://github.com/chxuan/vim-buffer
+  [71]: https://raw.githubusercontent.com/chxuan/cpp-mode/master/screenshots/cpp-mode.gif
+  [72]: https://github.com/chxuan/vim-edit
+  [73]: https://github.com/yianwillis/vimcdoc
+  [74]: https://github.com/chxuan/tagbar
