@@ -99,11 +99,17 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 " 插件列表
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-
+" C
 Plug 'chxuan/cppfun'
+" Go
+Plug 'fatih/vim-go'
+" python
+Plug 'tell-k/vim-autopep8'
+" 通用
+Plug 'Valloric/YouCompleteMe'
 Plug 'chxuan/change-colorscheme'
-Plug 'chxuan/prepare-code'
 Plug 'chxuan/vimplus-startify'
+Plug 'chxuan/prepare-code'
 Plug 'Yggdroot/LeaderF'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
@@ -115,7 +121,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rkulla/pydiction'
-Plug 'Valloric/YouCompleteMe'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -151,7 +156,6 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'will133/vim-dirdiff'
 Plug 'tmhedberg/SimpylFold'
 Plug 'airblade/vim-gitgutter'
-Plug 'tell-k/vim-autopep8'
 Plug 'jpalardy/vim-slime'
 Plug 'vim-syntastic/syntastic'
 
