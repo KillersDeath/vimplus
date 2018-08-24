@@ -18,7 +18,7 @@ An automatic configuration program for vim
 - 安装vimplus
 
     ```bash
-    git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+    git clone https://github.com/KillersDeath/vimplus.git ~/.vimplus
     cd ~/.vimplus
     ./install.sh
     ```
@@ -32,7 +32,7 @@ An automatic configuration program for vim
 - 安装vimplus
 
     ```bash
-    git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+    git clone https://github.com/KillersDeath/vimplus.git ~/.vimplus
     cd ~/.vimplus
     sudo ./install.sh
     ```
@@ -46,7 +46,7 @@ An automatic configuration program for vim
 - 安装vimplus
 
     ```bash
-    git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+    git clone https://github.com/KillersDeath/vimplus.git ~/.vimplus
     cd ~/.vimplus
     sudo ./install.sh
     ```
@@ -56,7 +56,7 @@ An automatic configuration program for vim
 - 安装vimplus
 
     ```bash
-    git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+    git clone https://github.com/KillersDeath/vimplus.git ~/.vimplus
     cd ~/.vimplus
     sudo ./install.sh
     ```
