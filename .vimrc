@@ -7,9 +7,9 @@
 "                    /_/
 "            
 "
-" Author: chxuan <787280310@qq.com>
-" Repository: https://github.com/chxuan/vimplus
-" Create Date: 2016-04-10
+" Author: zhangliujie <liujiezhangbupt@gmail.com>
+" Repository: https://github.com/KillersDeath/vimplus
+" Create Date: 2018-04-10
 " License: MIT
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,9 +28,14 @@ set showcmd              " select模式下显示选中的行数
 set ruler                " 总是显示光标位置
 set laststatus=2         " 总是显示状态栏
 set number               " 开启行号显示
+set relativenumber       " 设置相对行号
 set cursorline           " 高亮显示当前行
 set whichwrap+=<,>,h,l   " 设置光标键跨行
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
+" Toggle Relative Number
+nnoremap <silent> <leader>nb :set relativenumber!<CR>
+" Home & End should be placed next to each other
+nnoremap - $
 " 不让vim发出讨厌的滴滴声
 set noerrorbells
 " 告诉我们文件的哪一行被改变过
@@ -41,6 +46,17 @@ set selection=exclusive
 set selectmode=mouse,key
 " 设置更新时间
 set updatetime=250
+
+" Select all text
+nnoremap vA ggVG
+" Quick Save
+nnoremap <S-s> :w<CR>
+" Map jk to ESC in insert mode
+inoremap jk <esc>
+" Shift to the next round tab stop.
+set shiftround
+" Set auto indent spacing.
+set shiftwidth=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -421,7 +437,3 @@ map<silent> <leader><leader>b oimport ipdb;ipdb.set_trace(context=5)<esc>
 if filereadable(expand($HOME . '/.vimrc.local'))
     source $HOME/.vimrc.local
 endif
-
-
-
-
